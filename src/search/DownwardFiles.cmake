@@ -265,6 +265,14 @@ fast_downward_plugin(
 )
 
 fast_downward_plugin(
+    NAME PROTOTYPE_G_EVALUATOR
+    HELP "The prototype g-evaluator"
+    SOURCES
+        evaluators/prototype_g_evaluator
+    DEPENDS EVALUATORS_PLUGIN_GROUP
+)
+
+fast_downward_plugin(
     NAME COMBINING_EVALUATOR
     HELP "The combining evaluator"
     SOURCES
