@@ -380,6 +380,14 @@ fast_downward_plugin(
 )
 
 fast_downward_plugin(
+    NAME PLUGIN_MYASTAR
+    HELP "A* search"
+    SOURCES
+        search_engines/plugin_my_astar
+    DEPENDS EAGER_SEARCH SEARCH_COMMON
+)
+
+fast_downward_plugin(
     NAME PLUGIN_EAGER
     HELP "Eager (i.e., normal) best-first search"
     SOURCES
