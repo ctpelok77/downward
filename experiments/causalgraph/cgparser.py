@@ -116,37 +116,39 @@ def is_complete(G):
 
 
 def parse_directed_bipartite(content, props):
-    props["directed_bipartite_cg"] = is_directed_bipartite(G)
+    if "causal_graph" not in props:
+        props["causal_graph"] = {}
+    props["causal_graph"]["directed_bipartite_cg"] = int(is_directed_bipartite(G))
 
 def parse_bipartite(content, props):
-    props["bipartite_cg"] = is_bipartite(G)
+    props["causal_graph"]["bipartite_cg"] = int(is_bipartite(G))
 
 def parse_directed_chain(content, props):
-    props["directed_chain_cg"] = is_directed_chain(G)
+    props["causal_graph"]["directed_chain_cg"] = int(is_directed_chain(G))
 
 def parse_chain(content, props):
-    props["chain_cg"] = is_chain(G)
+    props["causal_graph"]["chain_cg"] = int(is_chain(G))
 
 def parse_tree(content, props):
-    props["tree_cg"] = is_tree(G)
+    props["causal_graph"]["tree_cg"] = int(is_tree(G))
 
 def parse_polytree(content, props):
-    props["polytree_cg"] = is_polytree(G)
+    props["causal_graph"]["polytree_cg"] = int(is_polytree(G))
 
 def parse_dag(content, props):
-    props["dag_cg"] = is_DAG(G)
+    props["causal_graph"]["dag_cg"] = int(is_DAG(G))
 
 def parse_fork(content, props):
-    props["fork_cg"] = is_fork(G)
+    props["causal_graph"]["fork_cg"] = int(is_fork(G))
 
 def parse_inverted_fork(content, props):
-    props["inverted_fork_cg"] = is_inverted_fork(G)
+    props["causal_graph"]["inverted_fork_cg"] = int(is_inverted_fork(G))
 
 def parse_star(content, props):
-    props["star_cg"] = is_star(G)
+    props["causal_graph"]["star_cg"] = int(is_star(G))
 
 def parse_complete(content, props):
-    props["complete_cg"] = is_complete(G)
+    props["causal_graph"]["complete_cg"] = int(is_complete(G))
 
 
 
