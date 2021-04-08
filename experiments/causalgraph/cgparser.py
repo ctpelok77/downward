@@ -7,7 +7,7 @@ import pygraphviz as pgv
 import networkx as nx
 import sys
     
-gv = pgv.AGraph(sys.argv[1], strict=False, directed=True)
+gv = pgv.AGraph('causal_graph.dot', strict=False, directed=True)
 G = nx.DiGraph(gv)
 
 def is_directed_bipartite(G):
@@ -133,7 +133,7 @@ def parse_tree(content, props):
 def parse_polytree(content, props):
     props["polytree_cg"] = is_polytree(G)
 
-def parse_DAG(content, props):
+def parse_dag(content, props):
     props["dag_cg"] = is_DAG(G)
 
 def parse_fork(content, props):
@@ -161,7 +161,7 @@ parser.add_function(parse_fork)
 parser.add_function(parse_inverted_fork)
 parser.add_function(parse_star)
 parser.add_function(parse_complete)
-
+'''
 if __name__ == "__main__":
 
 
@@ -176,3 +176,4 @@ if __name__ == "__main__":
     print("Inverted Fork:", is_inverted_fork(G))
     print("Star:", is_star(G))
     print("Complete:", is_complete(G))
+    '''

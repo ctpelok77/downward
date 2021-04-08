@@ -22,7 +22,7 @@ CONFIGS = [
 ]
 
 SUITE = common_setup.DEFAULT_OPTIMAL_SUITE
-
+SUITE = IssueExperiment.DEFAULT_TEST_SUITE
 ENVIRONMENT = LocalEnvironment(processes=48)
 
 exp = common_setup.IssueExperiment(
