@@ -149,31 +149,27 @@ def parse_complete(content, props):
     props["complete_cg"] = is_complete(G)
 
 
-parser = Parser()
-parser.add_function(parse_directed_bipartite)
-parser.add_function(parse_bipartite)
-parser.add_function(parse_directed_chain)
-parser.add_function(parse_chain)
-parser.add_function(parse_tree)
-parser.add_function(parse_polytree)
-parser.add_function(parse_dag)
-parser.add_function(parse_fork)
-parser.add_function(parse_inverted_fork)
-parser.add_function(parse_star)
-parser.add_function(parse_complete)
-'''
-if __name__ == "__main__":
 
 
-    print("Directed Bipartite:", is_directed_bipartite(G))
-    print("Bipartite:", is_bipartite(G))
-    print("Directed Chain:", is_directed_chain(G))
-    print("Chain:", is_chain(G))
-    print("Tree:", is_tree(G))
-    print("Polytree:", is_polytree(G))
-    print("Directed Acyclic Graph:", is_DAG(G))
-    print("Fork:", is_fork(G))
-    print("Inverted Fork:", is_inverted_fork(G))
-    print("Star:", is_star(G))
-    print("Complete:", is_complete(G))
-    '''
+class CGParser(Parser):
+    def __init__(self):
+        Parser.__init__(self)
+        self.add_function(parse_directed_bipartite)
+        self.add_function(parse_bipartite)
+        self.add_function(parse_directed_chain)
+        self.add_function(parse_chain)
+        self.add_function(parse_tree)
+        self.add_function(parse_polytree)
+        self.add_function(parse_dag)
+        self.add_function(parse_fork)
+        self.add_function(parse_inverted_fork)
+        self.add_function(parse_star)
+        self.add_function(parse_complete)
+
+
+def main():
+    parser = CGParser()
+    parser.parse()
+
+
+main()
