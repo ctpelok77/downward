@@ -1,4 +1,6 @@
+#include "shortest_eager_search.h"
 #include "eager_search.h"
+
 #include "search_common.h"
 
 #include "../option_parser.h"
@@ -6,7 +8,7 @@
 
 using namespace std;
 
-namespace plugin_my_astar {
+namespace plugin_shortest_astar {
 static shared_ptr<SearchEngine> _parse(OptionParser &parser) {
     parser.document_synopsis(
         "A* search (eager)",
@@ -38,19 +40,20 @@ static shared_ptr<SearchEngine> _parse(OptionParser &parser) {
     eager_search::add_options_to_parser(parser);
     Options opts = parser.parse();
 
-    shared_ptr<eager_search::EagerSearch> engine;
+    shared_ptr<eager_search::ShortestEagerSearch> engine;
     if (!parser.dry_run()) {
-        auto temp = search_common::create_my_astar_open_list_factory_and_f_eval(opts);
+        auto temp = search_common::create_shortest_astar_open_list_factory_and_f_eval(opts);
         opts.set("open", temp.first);
-        opts.set("f_eval", temp.second);
+        opts.set("f_eval", temp.second[0]);
+        opts.set("d_eval", temp.second[1]);
         opts.set("reopen_closed", true);
         vector<shared_ptr<Evaluator>> preferred_list;
         opts.set("preferred", preferred_list);
-        engine = make_shared<eager_search::EagerSearch>(opts);
+        engine = make_shared<eager_search::ShortestEagerSearch>(opts);
     }
 
     return engine;
 }
 
-static Plugin<SearchEngine> _plugin("myastar", _parse);
+static Plugin<SearchEngine> _plugin("shortest_astar", _parse);
 }

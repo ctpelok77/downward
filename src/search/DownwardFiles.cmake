@@ -372,6 +372,15 @@ fast_downward_plugin(
 )
 
 fast_downward_plugin(
+    NAME SHORTEST_EAGER_SEARCH
+    HELP "Adapted eager search algorithm"
+    SOURCES
+        search_engines/shortest_eager_search
+    DEPENDS EAGER_SEARCH
+    DEPENDENCY_ONLY
+)
+
+fast_downward_plugin(
     NAME PLUGIN_ASTAR
     HELP "A* search"
     SOURCES
@@ -380,11 +389,11 @@ fast_downward_plugin(
 )
 
 fast_downward_plugin(
-    NAME PLUGIN_MYASTAR
+    NAME PLUGIN_SHORTEST_ASTAR
     HELP "A* search"
     SOURCES
-        search_engines/plugin_my_astar
-    DEPENDS EAGER_SEARCH SEARCH_COMMON
+        search_engines/plugin_shortest_astar
+    DEPENDS SHORTEST_EAGER_SEARCH SEARCH_COMMON
 )
 
 fast_downward_plugin(
