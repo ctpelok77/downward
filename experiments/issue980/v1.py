@@ -18,9 +18,9 @@ BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
 REVISIONS = ["issue980"]
 CONFIGS = [
     IssueConfig("blind", ["--search", "astar(blind())"]),
-    IssueConfig("shortest-blind", ["--search", "myastar(blind())"]),
+    IssueConfig("shortest-blind", ["--search", "shortest_astar(blind())"]),
     IssueConfig("lmcut", ["--search", "astar(lmcut())"]),
-    IssueConfig("shortest-lmcut", ["--search", "myastar(lmcut())"]),
+    IssueConfig("shortest-lmcut", ["--search", "shortest_astar(lmcut())"]),
 ]
 SUITE = ["agricola-opt18-strips", "barman-opt11-strips", "caldera-split-opt18-adl", "cavediving-14-adl", "citycar-opt14-adl", "data-network-opt18-strips", "elevators-opt08-strips", "elevators-opt11-strips", "floortile-opt11-strips", "floortile-opt14-strips", "ged-opt14-strips", "openstacks-opt08-adl", "openstacks-opt08-strips", "openstacks-opt11-strips", "openstacks-opt14-strips", "organic-synthesis-split-opt18-strips", "parcprinter-08-strips", "parcprinter-opt11-strips", "pegsol-08-strips", "pegsol-opt11-strips", "petri-net-alignment-opt18-strips", "scanalyzer-08-strips", "scanalyzer-opt11-strips", "settlers-opt18-adl", "sokoban-opt08-strips", "sokoban-opt11-strips", "spider-opt18-strips", "tetris-opt14-strips", "transport-opt08-strips", "transport-opt11-strips", "transport-opt14-strips", "woodworking-opt08-strips", "woodworking-opt11-strips"]
 
